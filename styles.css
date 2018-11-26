@@ -1,0 +1,78 @@
+body {
+	background-color: rgb(59, 58, 80); /*Eclipse*/
+	/*background: rgb(117, 87, 65); /*Toffee*/
+	color: white;
+	font-size: 0.8em;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+	/* font-family: "Montseratt", "Avenir"; */
+	margin: 0;
+}
+
+h1 {
+	background-color: rgb(221, 77, 67); /*Fiesta*/
+	/*background: rgb(252, 118, 106); /*Living Coral*/
+	font-weight: normal;
+	line-height: 1.1;
+	margin: 0;
+	padding: 20px 0;
+}
+
+#colorDisplay {
+	font-size: 200%;
+	font-weight: 500;
+}
+
+#navbar {
+	background-color: white;
+	color: rgb(59, 58, 80); /*Eclipse*/
+	text-align: center;
+	height: 30px;
+}
+
+button {
+	text-transform: uppercase;
+	color: rgb(221, 77, 67); /*Fiesta*/
+	font-weight: 500;
+	font-size: inherit;
+	letter-spacing: 1px;
+	outline: none;
+	border: none;
+	background: none;
+	height: 100%;
+	transition: all 0.6s;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+}
+
+button:hover {
+	color: white;
+	background-color: rgb(221, 77, 67); /*Fiesta*/
+}
+
+.selected {
+	color: white;
+	background-color: rgb(221, 77, 67); /*Fiesta*/
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
+}
+
+#container {
+	margin: 10px auto; /*auto keeps in the middle*/
+	max-width: 680px; /*change when done*/
+}
+
+.square {
+	float: left;
+	/*background-color: rgb(221, 77, 67); /*Fiesta*/
+	background-color: rgb(252, 118, 106); /*Living Coral*/
+	margin: 1.66%;
+	width: 30%; /* 3 per line */
+	padding-bottom: 30%;
+	border-radius: 50%;
+	transition: background 0.8s;
+}
