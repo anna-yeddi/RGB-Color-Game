@@ -1,13 +1,15 @@
-var colors = [];
-var pickedColor;
-var numSquares = 6;
-var gameMode = "Normal";
-var h1 = document.querySelector("h1");
-var colorDisplay = document.querySelector("#colorDisplay");
-var messageDisplay = document.querySelector("#message");
-var resetBtn = document.querySelector("#resetBtn");
-var mode = document.querySelectorAll(".mode");
-var squares = document.querySelectorAll(".square");
+"use strict";
+
+let colors = [],
+	pickedColor,
+	numSquares = 6,
+	gameMode = "Normal",
+	h1 = document.querySelector("h1"),
+	colorDisplay = document.querySelector("#colorDisplay"),
+	messageDisplay = document.querySelector("#message"),
+	resetBtn = document.querySelector("#resetBtn"),
+	mode = document.querySelectorAll(".mode"),
+	squares = document.querySelectorAll(".square");
 
 
 init();
@@ -23,8 +25,8 @@ function init(){
 }
 
 function setupMode() {
-	for(i = 0; i < mode.length; i++) {
-		mode[i].addEventListener("click", function() {
+	mode.forEach(function (btn) {
+		btn.addEventListener("click", function() {
 			mode[0].classList.remove("selected");
 			mode[1].classList.remove("selected");
 			mode[2].classList.remove("selected");
@@ -33,7 +35,7 @@ function setupMode() {
 			setupGameMode();
 			reset();
 		});
-	};
+	});
 }
 
 function setupGameMode(){
@@ -47,32 +49,36 @@ function setupGameMode(){
 }
 
 function reset() {
+	squares.forEach(function(square) {
+		square.removeEventListener("click", reset);
+	});
 	selectColors();
 	pickColor();
-	h1.style.backgroundColor = "rgb(221, 77, 67)"; //Fiesta//
+	h1.style.backgroundColor = "var(--bright)";
 	messageDisplay.textContent = "";
-	resetBtn.textContent = "New Colors";	
+	resetBtn.textContent = "New Colors";
 }
 
 function selectColors(color) {
 	colors = [];
-	for(i = 0; i < squares.length; i++) {
+	squares.forEach(function(square, i) {
 		if(i < numSquares) {
-			var color = getRandomColor();
+			let color = getRandomColor();
 			colors.push(color);
-			squares[i].style.display = "block";
-			squares[i].style.backgroundColor = color;
+			square.style.display = "block";
+			square.style.backgroundColor = color;
+			square.style.boxShadow = "var(--shadow)";
 		} else {
-			squares[i].style.display = "none";
-		};
-	};
+			square.style.display = "none";
+		}
+	});
 	return colors;
 }
 
 function getRandomColor(color){
-	var r = Math.floor(Math.random() * 256);
-	var g = Math.floor(Math.random() * 256);
-	var b = Math.floor(Math.random() * 256);
+	let r = Math.floor(Math.random() * 256),
+		g = Math.floor(Math.random() * 256),
+		b = Math.floor(Math.random() * 256);
 	color = "rgb(" + r + ", " + g + ", " + b + ")";
 	return color;
 }
@@ -84,25 +90,28 @@ function pickColor(){
 }
 
 function gameStart(){
-	for(i = 0; i < squares.length; i++) {
-		squares[i].addEventListener("click", function(){
-			var clickedColor = this.style.backgroundColor;
+	squares.forEach(function (square) {
+		square.addEventListener("click", function(){
+			let clickedColor = this.style.backgroundColor;
 			if(clickedColor === pickedColor) {
 				gameOver();
 			} else {
 				messageDisplay.textContent = "Try Again";
-				this.style.backgroundColor = "rgb(59, 58, 80)"; //Eclipse//
-			};
+				this.style.backgroundColor = "var(--dark)";
+				this.style.boxShadow = "none";
+			}
 		});
-	};
+	});
 }
 
 function gameOver(){
 	messageDisplay.textContent = "You won!";
 	h1.style.backgroundColor = pickedColor;
-	for(i = 0; i < numSquares; i++) {
-		squares[i].style.backgroundColor = pickedColor;
-	};
+	squares.forEach(function(square) {
+		square.style.backgroundColor = pickedColor;
+		square.style.boxShadow = "var(--shadow)";
+		square.addEventListener("click", reset);
+	});
 	resetBtn.textContent = "Play again?";	
 }
 

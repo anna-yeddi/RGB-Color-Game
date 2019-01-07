@@ -1,29 +1,38 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Color Game</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>RGB Color Game</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 
 <h1>
-	The Great Anna's
-	<br>
-	<span id="colorDisplay">RGB</span>
-	<br>
-	Color Game
+	<div class="container">
+		Great Anna's
+		<br>
+		<span id="colorDisplay">RGB</span>
+		<br>
+		Color Game
+	</div>
 </h1>
 
 <div id="navbar">
-	<button id="resetBtn">New Colors</button>
-	<span id="message"></span>
-	<button class="mode">Easy</button>
-	<button class="mode selected">Normal</button>
-	<button class="mode">Hard</button>
+	<div class="container">
+		<button id="resetBtn">New Colors</button>
+		<span id="message"></span>
+		<span>
+			<button class="mode">Easy</button>
+			<button class="mode selected">Normal</button>
+			<button class="mode">Hard</button>
+		</span>
+	</div>
 </div>
 
-<div id="container">
+<div class="container game-field">
 	<div class="square"></div>
 	<div class="square"></div>
 	<div class="square"></div>
@@ -35,6 +44,14 @@
 	<div class="square"></div>
 </div>
 
+<footer>© Anna Kova, 2018<script type="text/JavaScript">
+		new Date().getFullYear()>2018 && document.write("-" + new Date().getFullYear());
+	</script>
+    
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131142493-1"></script>
+	<script type="text/javascript" src="gtag.js"></script>
+</footer>
 <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>

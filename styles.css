@@ -1,78 +1,144 @@
 body {
-	background-color: rgb(59, 58, 80); /*Eclipse*/
-	/*background: rgb(117, 87, 65); /*Toffee*/
+
+	--dark: #676969;
+	--bright: #00a6a0;
+	--pale: #d0e8d3;
+	--shadow: var(--pale) 1.5px 1.5px, var(--pale) -1.5px -1.5px, var(--pale) -1.5px 1.5px, var(--pale) 1.5px -1.5px;
+	background-color: var(--dark);
 	color: white;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	text-align: center;
+	font-weight: 400;
 	text-transform: uppercase;
-	font-family: 'Lato', sans-serif;
-	/* font-family: "Montseratt", "Avenir"; */
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	word-spacing: 0.4em;
+	letter-spacing: 0.2em;
+	line-height: 1.8;
 	margin: 0;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
 }
 
 h1 {
-	background-color: rgb(221, 77, 67); /*Fiesta*/
-	/*background: rgb(252, 118, 106); /*Living Coral*/
-	font-weight: normal;
-	line-height: 1.1;
+	background-color: var(--blue);
+	color: var(--pale);
+	font-weight: 300;
+	line-height: 1.2;
 	margin: 0;
 	padding: 20px 0;
 }
 
 #colorDisplay {
-	font-size: 200%;
-	font-weight: 500;
+	font-size: 2em;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
+	text-shadow: var(--pale) 1px 1px;
+}
+
+@media (max-width: 680px) {
+	body {
+        font-size: 0.7em;
+	}
+}
+
+@media (max-width: 560px) {
+	body {
+        font-size: 0.6em;
+	}
+}
+
+@media (max-width: 450px) {
+	body {
+        font-size: 0.5em;
+	}
 }
 
 #navbar {
-	background-color: white;
-	color: rgb(59, 58, 80); /*Eclipse*/
+	background-color: var(--pale);
+	color: var(--dark);
 	text-align: center;
-	height: 30px;
+	height: 100%;
+}
+
+#navbar > .container {
+	justify-content: space-between;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -moz-box;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 button {
 	text-transform: uppercase;
-	color: rgb(221, 77, 67); /*Fiesta*/
-	font-weight: 500;
+	color: var(--bright);
 	font-size: inherit;
-	letter-spacing: 1px;
+	letter-spacing: 0.1em;
 	outline: none;
 	border: none;
 	background: none;
-	height: 100%;
+	height: 2em;
 	transition: all 0.6s;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
 }
 
 button:hover {
 	color: white;
-	background-color: rgb(221, 77, 67); /*Fiesta*/
+	background-color: var(--bright);
 }
 
 .selected {
 	color: white;
-	background-color: rgb(221, 77, 67); /*Fiesta*/
+	background-color: var(--bright);
 }
 
 #message {
-	display: inline-block;
-	width: 20%;
+	display: inline-flex;
+	display: -webkit-inline-flex;
+	text-align: center;
+	font-size: inherit;
+	letter-spacing: 0.1em;
 }
 
-#container {
-	margin: 10px auto; /*auto keeps in the middle*/
-	max-width: 680px; /*change when done*/
+.game-field {
+	margin: 1em auto;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -moz-box;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .square {
-	float: left;
-	/*background-color: rgb(221, 77, 67); /*Fiesta*/
-	background-color: rgb(252, 118, 106); /*Living Coral*/
+	-webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+	background-color: var(--bright);
 	margin: 1.66%;
-	width: 30%; /* 3 per line */
 	padding-bottom: 30%;
 	border-radius: 50%;
-	transition: background 0.8s;
+	transition: all 0.6s;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	box-shadow: var(--shadow);
+}
+
+footer {
+	margin-top: 5em;
+	font-size: 0.8em;
+	font-weight: 300;
+	text-align: right;
+	width: 95%;
 }
